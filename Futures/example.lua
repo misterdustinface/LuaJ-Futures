@@ -26,11 +26,23 @@ end
 
 local function wackyConcurrencyExample()
 	local simplePromise = Future(factorial, 7)
-	local a             = Future(promiseChecker, simplePromise, "SIMPLE PROMISE")
+	local a             = Future(promiseChecker, simplePromise, "Factorial 7:")
 	
 	local hardPromise   = Future(factorial, 20)
-	local b             = Future(promiseChecker, hardPromise, "HARD PROMISE")
+	local b             = Future(promiseChecker, hardPromise, "Factorial 20:")
+end
+
+local function immediateCallbackExample()
+  local function displayResult(xResult, xLabel)
+    print(xLabel, xResult)
+  end
+  
+  Future(factorial, 13):callback(displayResult, "Factorial 13:")
+  
+  local promise = Future(factorial, 16):callback(displayResult, "Factorial 16:")
+  promiseChecker(promise, "Factorial 16:")
 end
 
 standardExample()
 wackyConcurrencyExample()
+immediateCallbackExample()

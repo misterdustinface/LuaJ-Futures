@@ -1,26 +1,36 @@
 local function isBroken(promise)
-	return promise.status == "BROKEN"
+	return promise._status == "BROKEN"
 end
 
 local function isPending(promise)
-	return promise.status == "PENDING"
+	return promise._status == "PENDING"
 end
 
 local function isFulfilled(promise)
-	return promise.status == "FULFILLED"
+	return promise._status == "FULFILLED"
 end
 
 local function result(promise)
-	return promise.key
+	return promise._result
 end
 
-local function fulfilled(notifier, key)
-	notifier.promise.key = key
-	notifier.promise.status = "FULFILLED"
+local function callback(promise, xCallbackFunction, ...)
+  promise._callbackFunc = xCallbackFunction
+  promise._callbackArgs = {...}
+  return promise
+end
+
+local function fulfilled(notifier, result)
+  local promise = notifier.promise
+	promise._result = result
+	promise._status = "FULFILLED"
+	local args = promise._callbackArgs
+	promise._callbackFunc(result, table.unpack(args))
 end
 
 local function broken(notifier)
-	notifier.promise.status = "BROKEN"
+  local promise = notifier.promise
+	promise._status = "BROKEN"
 end
 
 function Promise()
@@ -30,7 +40,11 @@ function Promise()
 		isBroken    = isBroken,
 		isFulfilled = isFulfilled,
 		result      = result,
-		status      = "PENDING",
+		callback    = callback,
+		_result     = nil,
+		_status      = "PENDING",
+		_callbackFunc = function() end,
+		_callbackArgs = {},
 	}
 	
 	local notifier = {
