@@ -1,43 +1,45 @@
+-- Promise Methods --
 local function isBroken(promise)
-	return promise._status == "BROKEN"
+	return promise.private.status == "BROKEN"
 end
 
 local function isPending(promise)
-	return promise._status == "PENDING"
+	return promise.private.status == "PENDING"
 end
 
 local function isFulfilled(promise)
-	return promise._status == "FULFILLED"
+	return promise.private.status == "FULFILLED"
 end
 
 local function getResult(promise)
-	return promise._result
+	return promise.private.result
 end
 
 local function setCallback(promise, xCallbackFunction, ...)
-  promise._callbackFunc = xCallbackFunction
-  promise._callbackArgs = {...}
+  promise.private.callbackFunc = xCallbackFunction
+  promise.private.callbackArgs = {...}
   return promise
 end
 
-local function interrupt()
-
+local function disregard(promise)
+  promise.private.stopFuture()
+  promise.private.result = nil
+  promise.private.status = "BROKEN"
+  promise.private.callbackFunc = function() end
+  promise.private.callbackArgs = {}
 end
 
-local function disregard()
-  
+-- Notifier Methods --
+local function setPromiseFulfilled(notifier, result)
+  local promise = notifier.private.promise
+	promise.private.result = result
+	promise.private.status = "FULFILLED"
+	promise.private.callbackFunc(result, table.unpack(promise.private.callbackArgs))
 end
 
-local function fulfilled(notifier, result)
-  local promise = notifier.promise
-	promise._result = result
-	promise._status = "FULFILLED"
-	promise._callbackFunc(result, table.unpack(promise._callbackArgs))
-end
-
-local function broken(notifier)
-  local promise = notifier.promise
-	promise._status = "BROKEN"
+local function setPromiseBroken(notifier)
+  local promise = notifier.private.promise
+	promise.private.status = "BROKEN"
 end
 
 local function Promise()
@@ -48,16 +50,25 @@ local function Promise()
 		isFulfilled = isFulfilled,
 		result      = getResult,
 		callback    = setCallback,
-		_result     = nil,
-		_status      = "PENDING",
-		_callbackFunc = function() end,
-		_callbackArgs = {},
+		disregard   = disregard,
+		private = {
+		  result = nil,
+		  status = "PENDING",
+		  callbackFunc = function() end,
+		  callbackArgs = {},
+		  stopFuture   = function() end,
+		},
+		testing = {
+		  getFutureThreadState = function() return "NA" end,
+		},
 	}
 	
 	local notifier = {
-		promise     = promise,
-		fulfilled   = fulfilled,
-		broken      = broken,
+		fulfilled = setPromiseFulfilled,
+		broken    = setPromiseBroken,
+		private = {
+		  promise = promise,
+		},
 	}
 	
 	return promise, notifier

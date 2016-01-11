@@ -16,6 +16,12 @@ local function Future(futureFunction, ...)
 
 	local thread = Thread(futureFunctionWrapper)
 	thread:start()
+
+	promise.private.stopFuture = function() 
+    -- implement method of stopping thread execution here --
+    thread:join(0, 0) 
+  end
+  promise.testing.getFutureThreadState = function() return thread:getState() end
 	
 	return promise
 end

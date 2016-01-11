@@ -1,19 +1,19 @@
 local Future = require("luasrc/Future")
 
+local function factorialTailCaller(x, accumulatedTotal)
+  if x > 1 then
+    return factorialTailCaller(x - 1, x * accumulatedTotal)
+  end
+  return accumulatedTotal
+end
 local function factorial(x)
-	local result
-	if x <= 1 then 
-		result = 1
-	else
-		result = x * factorial(x - 1)
-	end
-	return result
+  return factorialTailCaller(x, 1)
 end
 
 local function promiseChecker(promise, name)
   while not (promise:isFulfilled() or promise:isBroken()) do 
     print(name, "Pending?", promise:isPending())
-  end
+  end  
   
   if promise:isFulfilled() then
     print(name, "=", promise:result())
@@ -68,11 +68,21 @@ end
 
 -- Syntactic Sugar --
 local future = require("luasrc/Future2")
-local function syntacticSugarExample()
+local function syntacticSugarExamples()
   future(factorial, 17)(print, "is the result of Factorial 17.")
 
   local promise = future(factorial, 19)(print, "is the result of Factorial 19.")
   promiseChecker(promise, "Factorial 19")
+end
+
+-- Forcefully Breaking a Promise --
+local function disregardingPromiseExample()
+  local function infiniteloopfunc() while true do end end
+  local promise = Future(infiniteloopfunc)
+  print('state', promise.testing.getFutureThreadState(), "Should be 'RUNNABLE'")
+  promise:disregard()
+  print('state', promise.testing.getFutureThreadState(), "Should be 'TERMINATED'")
+  promiseChecker(promise, "[Promise Disregarded - Should be BROKEN]")
 end
 
 standardExamples()
@@ -83,5 +93,7 @@ immediateCallbackExamples()
 print("[Checkpoint C]")
 futureMustReturnIndividualValue()
 print("[Checkpoint D]")
-syntacticSugarExample()
+syntacticSugarExamples()
 print("[Checkpoint E]")
+--disregardingPromiseExample()
+--print("[Checkpoint F]")
