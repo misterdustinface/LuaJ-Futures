@@ -1,8 +1,7 @@
-require("luasrc/Thread")
-require("luasrc/Promise")
+local Thread = require("luasrc/Thread")
+local Promise = require("luasrc/Promise")
 
-function Future(futureFunction, ...)
-
+local function Future(futureFunction, ...)
 	local varargs = {...}
 	local promise, notifier = Promise()
 	
@@ -20,3 +19,5 @@ function Future(futureFunction, ...)
 	
 	return promise
 end
+
+return Future
