@@ -1,4 +1,4 @@
-local Future = require("luasrc/Future")
+local Future = require("luajfutures/Future")
 
 local function future(futureFunction, ...)
   local promise = Future(futureFunction, ...)

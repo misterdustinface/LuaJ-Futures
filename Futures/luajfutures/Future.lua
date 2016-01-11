@@ -1,5 +1,5 @@
-local Thread = require("luasrc/Thread")
-local Promise = require("luasrc/Promise")
+local Thread = require("luajfutures/Thread")
+local Promise = require("luajfutures/Promise")
 
 local function Future(futureFunction, ...)
 	local varargs = {...}

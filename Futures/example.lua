@@ -1,4 +1,5 @@
-local Future = require("luasrc/Future")
+local Future = require("luajfutures/Future")
+local future = require("luajfutures/Future2")
 
 local function factorialTailCaller(x, accumulatedTotal)
   if x > 1 then
@@ -67,7 +68,6 @@ local function futureMustReturnIndividualValue()
 end
 
 -- Syntactic Sugar --
-local future = require("luasrc/Future2")
 local function syntacticSugarExamples()
   future(factorial, 17)(print, "is the result of Factorial 17.")
 
