@@ -2,7 +2,7 @@
 
 First of all, [what are Futures and Promises?](https://en.wikipedia.org/wiki/Futures_and_promises)
 
-##### Index
+##### Furthermore,
 0. [What does this library do](#what-does-this-library-do)
 1. [Why futures are useful](#why-futures-are-useful)
 2. [When should you use futures](#when-should-you-use-futures)
