@@ -15,7 +15,7 @@
 ```Lua
   local future = require('luajfutures/Future')
 ```
-  - Then, define some function
+  - Then, define some function, which should take some time to complete, and returns one value
 ```Lua
   local function computeY(x)
     local y = x/3 + 5.2
