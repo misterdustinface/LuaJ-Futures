@@ -51,12 +51,12 @@
 ```Lua
   future(computeY, 3):callback(print)
 ```
-  - In this setup: when the computeY future is finished, print is called with the result
+  - In this setup: when the computeY future is finished, print is called with the result (as the first argument to print)
 ```
   6.2
 ```
 
-  - Another example, in which arguments are given to the callback
+  - Another example, in which arguments are given to the callback (with "Hello World!" as the second argument to print)
 ```Lua
   future(computeY, 3):callback(print, "Hello World!")
 ```
