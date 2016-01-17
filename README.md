@@ -45,7 +45,7 @@
   promise:isPending()   -- true while promise is computing, false if promise completed.
   promise:isFulfilled() -- true if promise completed and returned value.
   promise:isBroken()    -- true if promise completed and did not return value.
-  promise:result()      -- returns a computed promise result if it exists; otherwise, returns nil.
+  promise:result()      -- returns the future's result if it exists; otherwise, returns nil.
 ```
   - Or, instead of monitoring, you can set a callback which gets called after the future completes execution
 ```Lua
