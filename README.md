@@ -52,3 +52,14 @@
 ```
   6.2   Hello World!
 ```
+
+  - Or similarly, using Future2
+```Lua
+  local future = require('luajfutures/Future2')
+  
+  future(computeY, 3)(print, "Hello World!")
+```
+  - Which similarly prints
+```
+  6.2   Hello World!
+```
