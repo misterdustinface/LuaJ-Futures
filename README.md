@@ -2,12 +2,24 @@
 
 ##### Index
 0. [What](#what)
-1. [How](#how)
+1. [Why](#why)
+2. [When](#when)
+3. [How](#how)
 
 ## What
   - [What are Futures and Promises?](https://en.wikipedia.org/wiki/Futures_and_promises)
   - This library implements "eager" futures - where computation starts as soon as the future is created - which run in dynamically created threads.
   - Note: There are a few variations of usage in this library
+
+## Why
+  - Futures are useful for delegating tasks
+  - Futures are especially useful for delegating lengthy tasks
+
+## When
+  - Loading
+  - Loading pictures, video, or sound within a menu
+  - Loading a level of a video game, or some feature of that level
+  - Computation
 
 ## How
 
