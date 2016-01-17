@@ -40,18 +40,18 @@
   local promise = future(computeY, 3)
 ```
 
-  - Which returns a promise, which can be monitored with
+  - A future returns a promise, which can be monitored with
 ```Lua
   promise:isPending()   -- true while promise is computing, false if promise completed.
   promise:isFulfilled() -- true if promise completed and returned value.
   promise:isBroken()    -- true if promise completed and did not return value.
   promise:result()      -- returns a computed promise result if it exists; otherwise, returns nil.
 ```
-  - Or, instead of monitoring, you can set a callback which gets called after the future executes
+  - Or, instead of monitoring, you can set a callback which gets called after the future completes execution
 ```Lua
   future(computeY, 3):callback(print)
 ```
-  - When the computeY future is finished, print is called with the result
+  - In this setup: when the computeY future is finished, print is called with the result
 ```
   6.2
 ```
@@ -65,13 +65,9 @@
   6.2   Hello World!
 ```
 
-  - Or similarly, using Future2
+  - Or with the syntactic sugar of Future2
 ```Lua
   local future = require('luajfutures/Future2')
   
   future(computeY, 3)(print, "Hello World!")
-```
-  - Which similarly prints
-```
-  6.2   Hello World!
 ```
