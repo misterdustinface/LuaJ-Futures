@@ -42,9 +42,9 @@
 
   - A future returns a promise, which can be monitored with
 ```Lua
-  promise:isPending()   -- true while promise is computing, false if promise completed.
-  promise:isFulfilled() -- true if promise completed and returned value.
-  promise:isBroken()    -- true if promise completed and did not return value.
+  promise:isPending()   -- true while future is computing, false if future completed.
+  promise:isFulfilled() -- true if future completed and returned value.
+  promise:isBroken()    -- true if future completed and did not return value.
   promise:result()      -- returns the future's result if it exists; otherwise, returns nil.
 ```
   - Or, instead of monitoring, you can set a callback which gets called after the future completes execution
