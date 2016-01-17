@@ -1,27 +1,28 @@
 ## LuaJ Futures
 
-##### Index
-0. [What](#what)
-1. [Why](#why)
-2. [When](#when)
-3. [How](#how)
+First of all, [what are Futures and Promises?](https://en.wikipedia.org/wiki/Futures_and_promises)
 
-## What
-  - [What are Futures and Promises?](https://en.wikipedia.org/wiki/Futures_and_promises)
+##### Index
+0. [What does this library do](#what-does-this-library-do)
+1. [Why futures are useful](#why-futures-are-useful)
+2. [When should you use futures](#when-should-you-use-futures)
+3. [How to use this library](#how-to-use-this-library)
+
+## What does this library do
   - This library implements "eager" futures - where computation starts as soon as the future is created - which run in dynamically created threads.
   - Note: There are a few variations of usage in this library
 
-## Why
-  - Futures are useful for delegating tasks
+## Why futures are useful
+  - Futures are practical for delegating tasks
   - Futures are especially useful for delegating lengthy tasks
 
-## When
-  - Loading
+## When should you use futures
   - Loading pictures, video, or sound within a menu
   - Loading a level of a video game, or some feature of that level
-  - Computation
+  - Loading anything
+  - Lengthy computation
 
-## How
+## How to use this library
 
 First, include the library
 ```Lua
