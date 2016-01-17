@@ -1,12 +1,12 @@
 ## LuaJ Futures
 
-First of all, [what are Futures and Promises?](https://en.wikipedia.org/wiki/Futures_and_promises)
+What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promises)?
 
-##### Furthermore,
+##### 
 0. [What does this library do?](#what-this-library-does)
 1. [Why are futures useful?](#why-futures-are-useful)
 2. [When should you use futures?](#you-should-use-futures-for)
-3. [How to use this library](#how-to-use-this-library)
+3. [How do I use this library?](#how-to-use-this-library)
 
 ## What this library does
   This library implements "eager" futures - where computation starts as soon as the future is created.
