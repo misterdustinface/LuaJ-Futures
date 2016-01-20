@@ -19,7 +19,10 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
   Futures and Promises are confusing - mostly because they have a variety of implementations.  
   This library is no exception to that rule.  
   My primary focus was to make a simple and accessible asynchronous/concurrent function dispatcher.
-  
+  For those who do not approve of my incorrect usage of the keywords "future" and "promise",  
+  I shall remind you that you are not bounded to my vocabulary, for you can define the names of your own variables.  
+  Furthermore, I am willing to update my vocabularly, so please inform me of more suitable word usage.
+
 ## Why futures are useful
   Futures are practical for delegating tasks, but they are especially suited for delegating lengthy tasks.  
   Essentially you can run some process in the background and worry about it's return value later.
