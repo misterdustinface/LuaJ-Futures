@@ -7,6 +7,7 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 1. [Why are futures useful?](#why-futures-are-useful)
 2. [When should you use futures?](#you-should-use-futures-for)
 3. [How do I use this library?](#how-to-use-this-library)
+4. [Apologies](#apologies)
 
 ## What this library does
   This library allows you to create an asyncronous/concurrent process called a "future".  
@@ -15,13 +16,6 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 
   This library implements "eager" futures - where computation starts as soon as the future is created.  
   These futures run in dynamically created threads.
-  
-  Futures and Promises are confusing - mostly because they have a variety of implementations.  
-  This library is no exception to that rule.  
-  My primary focus was to make a simple and accessible asynchronous/concurrent function dispatcher.
-  For those who do not approve of my incorrect usage of the keywords "future" and "promise",  
-  I shall remind you that you are not bounded to my vocabulary, for you can define the names of your own variables.  
-  Furthermore, I am willing to update my vocabularly, so please inform me of more suitable word usage.
 
 ## Why futures are useful
   Futures are practical for delegating tasks, but they are especially suited for delegating lengthy tasks.  
@@ -86,3 +80,14 @@ Or with the syntactic sugar of Future2
   
   future(computeY, 3)(print, "Hello World!")
 ```
+
+## Apologies
+
+Futures and Promises are confusing - mostly because they have a variety of implementations.
+
+This library is no exception to that rule.
+
+My primary focus was to make a simple and accessible asynchronous/concurrent function dispatcher.  
+For those who do not approve of my incorrect usage of the keywords "future" and "promise",  
+I shall remind you that you are not bounded to my vocabulary, for you can define the names of your own variables.  
+Furthermore, I am willing to update my vocabularly, so please inform me of more suitable word usage.  
