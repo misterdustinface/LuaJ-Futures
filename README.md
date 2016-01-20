@@ -12,7 +12,7 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 ## What this library does
   This library allows you to create an asyncronous/concurrent process called a "future".  
   The result of this future can be monitored with a "promise";  
-  or, you can just set a callback function for the future to call when it has completed it's task.
+  or, you can set a callback function for the future to call when it has completed it's designated task.
 
   This library implements "eager" futures - where computation starts as soon as the future is created.  
   These futures run in dynamically created threads.
