@@ -62,7 +62,7 @@ In this setup: when the computeY future is finished, print is called with the re
   6.2
 ```
 
-Another example, in which arguments are given to the callback (with "Hello World!" as the second argument to print)
+An example with arguments passed to the callback (uses "Hello World!" as the second argument to print)
 ```Lua
   future(computeY, 3):callback(print, "Hello World!")
 ```
