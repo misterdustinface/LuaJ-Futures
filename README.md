@@ -9,14 +9,19 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 3. [How do I use this library?](#how-to-use-this-library)
 
 ## What this library does
-  This library implements "eager" futures - where computation starts as soon as the future is created.
+  This library allows you to create an asyncronous process called a "future".  
+  The result of this future can be monitored with a "promise";  
+  or, you can just set a callback function for the future to call when it has completed it's task.
+
+  This library implements "eager" futures - where computation starts as soon as the future is created.  
   These futures run in dynamically created threads.
   
-  - Note: There are a few variations of usage in this library
-
-## Why futures are useful
-  Futures are practical for delegating tasks, but they are especially suited for delegating lengthy tasks.
+  Futures and Promises are confusing - mostly because they have a variety of implementations.  
+  This library is no exception to that rule.  
+  My primary focus was to make a simple and accessible asynchronous function dispatcher.
   
+## Why futures are useful
+  Futures are practical for delegating tasks, but they are especially suited for delegating lengthy tasks.  
   Essentially you can run some process in the background and worry about it's return value later.
 
 ## You should use futures for
