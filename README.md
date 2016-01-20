@@ -34,6 +34,7 @@ First include the library
 
 Then define your function of interest such that is has one return value
 ```Lua
+  -- Imagine that this function is more complex and slow. (:
   local function computeY(x)
     local y = x/3 + 5.2
     return y
