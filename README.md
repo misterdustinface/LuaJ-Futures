@@ -17,7 +17,7 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 ## Why futures are useful
   Futures are practical for delegating tasks, but they are especially suited for delegating lengthy tasks.
   
-  Essentially, you can run some process in the background, and worry about it's return value later.
+  Essentially you can run some process in the background and worry about it's return value later.
 
 ## You should use futures for
   - Loading pictures, video, or sound within a menu
@@ -27,12 +27,12 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 
 ## How to use this library
 
-First, include the library
+First include the library
 ```Lua
   local future = require('luajfutures/Future')
 ```
 
-Then, define some function, which should take some time to complete, and returns one value
+Then define your function of interest such that is has one return value
 ```Lua
   local function computeY(x)
     local y = x/3 + 5.2
@@ -45,7 +45,7 @@ Then run the function as a future, followed by any arguments you wish to pass to
   local promise = future(computeY, 3)
 ```
 
-A future returns a promise, which can be monitored with
+A future returns a promise which can be monitored with the following:
 ```Lua
   promise:isPending()   -- true while future is computing, false if future completed.
   promise:isFulfilled() -- true if future completed and returned value.
