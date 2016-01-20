@@ -9,7 +9,7 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 3. [How do I use this library?](#how-to-use-this-library)
 
 ## What this library does
-  This library allows you to create an asyncronous process called a "future".  
+  This library allows you to create an asyncronous/concurrent process called a "future".  
   The result of this future can be monitored with a "promise";  
   or, you can just set a callback function for the future to call when it has completed it's task.
 
@@ -18,7 +18,7 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
   
   Futures and Promises are confusing - mostly because they have a variety of implementations.  
   This library is no exception to that rule.  
-  My primary focus was to make a simple and accessible asynchronous function dispatcher.
+  My primary focus was to make a simple and accessible asynchronous/concurrent function dispatcher.
   
 ## Why futures are useful
   Futures are practical for delegating tasks, but they are especially suited for delegating lengthy tasks.  
