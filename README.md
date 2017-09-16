@@ -88,5 +88,5 @@ This library is no exception to that rule.
 
 My primary focus was to make a simple and accessible asynchronous/concurrent function dispatcher.  
 For those who do not approve of my incorrect usage of the keywords "future" and "promise",  
-I shall remind you that you are not bounded to my vocabulary, for you can define the names of your own variables.  
-Furthermore, I am willing to update my vocabularly, so please inform me of more suitable word usage.  
+I shall remind you that you are not bound to my vocabulary, for you can define the names of your own variables.  
+Furthermore, I am willing to update my vocabularly, so please inform me of more suitable synonyms.  
