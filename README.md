@@ -23,8 +23,7 @@ What are [futures and promises](https://en.wikipedia.org/wiki/Futures_and_promis
 
 ## You should use futures for
   - Loading pictures, video, or sound within a menu
-  - Loading a level of a video game, or some feature of that level
-  - Loading anything
+  - Loading a level of a video game, or some large feature of that level
   - Lengthy computation
 
 ## How to use this library
